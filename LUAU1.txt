@@ -1,0 +1,18 @@
+
+
+
+
+local cloneDuration = 30  -- Stop cloning after 30 seconds
+local startTime = os.time()
+
+for i = 1, math.huge do  -- Infinite loop but will stop when time is up
+    if os.time() - startTime >= cloneDuration then
+        break  -- Stop cloning when 30 seconds pass
+    end
+
+    local clone = game.ReplicatedStorage.Object:Clone()
+    clone.Parent = workspace
+    wait(3)  -- Clone every 3 seconds
+end
+
+print("Cloning has stopped after 30 seconds.")
